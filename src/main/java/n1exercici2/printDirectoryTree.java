@@ -14,9 +14,6 @@ public class printDirectoryTree {
             System.out.println("Usage: printDirectory path");
         }
         else {
-            Path directory = Paths.get(args[0]);
-            //FileVisitor fv = new VisitFiles();
-            //Files.walkFileTree(directory, fv);
            printSubdirectory(Paths.get(args[0]), 0);
         }
     }
