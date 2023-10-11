@@ -14,7 +14,7 @@ public class printDirectoryTree {
             System.out.println("Usage: printDirectory path");
         }
         else {
-           printSubdirectory(Paths.get(args[0]), 0);
+           printSubdirectory(Paths.get(args[0]).toAbsolutePath(), 0);
         }
     }
 

@@ -18,7 +18,7 @@ public class printDirectoryTree {
             System.out.println("Usage: printDirectory path");
         }
         else {
-            Path outputFile = Paths.get("n1exercici3/directoryTree.txt");
+            Path outputFile = Paths.get("directoryTree.txt");
             try {
                 //Create or overwrite the file and write the header
                 Files.write(outputFile, List.of("CONTENTS OF " + args[0]));

@@ -9,6 +9,6 @@ Compilar:
 javac n1exercici3\printDirectoryTree.java
 
 Executar:
-java n1exercici3.printDirectoryTree [directory path to be listed] [.txt file to print to]
-- Per exemple: java n1exercici3.printDirectoryTree C:\Users\username\IdeaProjects\EspJavaS1T5 C:\Users\username\docs\ouput.txt
+java n1exercici3.printDirectoryTree [directory path to be listed]
+- Per exemple: java n1exercici3.printDirectoryTree C:\Users\username\IdeaProjects\EspJavaS1T5
 - Si l'arxiu .txt no existeix, se'n crea un de nou. Si ja existeix, se sobreescriu.

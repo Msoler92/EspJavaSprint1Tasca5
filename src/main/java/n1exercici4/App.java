@@ -18,7 +18,7 @@ public class App {
                 case "log":
                     if (ccount > 2) {
                         try {
-                            executeLogCommand(Paths.get(args[1]), Paths.get(args[2]));
+                            executeLogCommand(Paths.get(args[1]).toAbsolutePath(), Paths.get(args[2]).toAbsolutePath());
                         } catch (InvalidPathException e) {
                             e.printStackTrace();
                             System.err.println("Invalid Path Exception: provided argument cannot be recognized as a path.");
@@ -28,7 +28,7 @@ public class App {
                 case "read":
                     if (ccount > 1) {
                         try {
-                            executeReadCommand(Paths.get(args[1]));
+                            executeReadCommand(Paths.get(args[1]).toAbsolutePath());
                         } catch (InvalidPathException e) {
                             e.printStackTrace();
                             System.err.println("Invalid Path Exception: provided argument cannot be recognized as a path.");
