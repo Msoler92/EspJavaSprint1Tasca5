@@ -1,4 +1,4 @@
-package n1exercici4;
+package n1exercici5.utils;
 
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
@@ -17,7 +17,7 @@ public class T5Utilities {
     }
 
 
-    static void recursiveDirLog(Path directory, Path outputFile, int depth) {
+    public static void recursiveDirLog(Path directory, Path outputFile, int depth) {
         ArrayList<Path> dirPaths = new ArrayList<>();
         String line;
         try(DirectoryStream<Path> stream = Files.newDirectoryStream(directory)) {

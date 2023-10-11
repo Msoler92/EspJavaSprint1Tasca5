@@ -6,7 +6,7 @@ Tasca 5, nivell 1, exercici 2
 
 Llista de comandos:
 Compilar:
-javac $ n1exercici2\printDirectoryTree.java
+javac n1exercici2\printDirectoryTree.java
 
 Executar:
-java $ n1exercici2.printDirectoryTree [directory path to print, for example: C:\Users\username\IdeaProjects\EspJavaS1T5]
+java n1exercici2.printDirectoryTree [directory path to print, for example: C:\Users\username\IdeaProjects\EspJavaS1T5]

@@ -1,11 +1,9 @@
-package n1exercici4;
+package n1exercici5;
 
-import n1exercici4.utils.T5Utilities;
+import n1exercici5.classes.testSerObject;
+import n1exercici5.utils.T5Utilities;
 
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.*;
 
 public class App {
@@ -34,6 +32,12 @@ public class App {
                             System.err.println("Invalid Path Exception: provided argument cannot be recognized as a path.");
                         }
                     }
+                    break;
+                case "testserialize":
+                    executeSerializeCommand("serializedTestObject");
+                    break;
+                case "testdeserialize":
+                    executeDeserializeCommand("serializedTestObject.ser");
                     break;
                 default:
                     System.out.println("Unrecognized command.");
@@ -67,6 +71,32 @@ public class App {
             }
         } else {
             System.err.println("The output path provided is not a readable .txt file");
+        }
+    }
+
+    static void executeSerializeCommand(String outputFileName) {
+        testSerObject obj = new testSerObject("Jaume", 68, false);
+            try (FileOutputStream fos = new FileOutputStream(outputFileName + ".ser");
+            ObjectOutputStream oos = new ObjectOutputStream(fos)){
+                oos.writeObject(obj);
+            } catch (FileNotFoundException x) {
+                System.err.format("FileNotFoundException: %s%n", x);
+            } catch (IOException x){
+                System.err.format("IOException: %s%n", x);
+            }
+    }
+
+    static void executeDeserializeCommand(String inputFileName) {
+        try (FileInputStream fis = new FileInputStream(inputFileName);
+             ObjectInputStream ois = new ObjectInputStream(fis)){
+            testSerObject obj = (testSerObject) ois.readObject();
+            System.out.println(obj);
+        } catch (FileNotFoundException x) {
+            System.err.format("FileNotFoundException: %s%n", x);
+        } catch (IOException x){
+            System.err.format("IOException: %s%n", x);
+        } catch (ClassNotFoundException x) {
+            System.err.format("ClassNotFoundException: %s%n", x);
         }
     }
 
