@@ -13,9 +13,8 @@ import static java.nio.file.StandardOpenOption.CREATE;
 
 public class T5Utilities {
     public static void printHelp() {
-        System.out.println("Help");
+        System.out.println("Refer to the readme for a list of available commands");
     }
-
 
     public static void recursiveDirLog(Path directory, Path outputFile, int depth) {
         ArrayList<Path> dirPaths = new ArrayList<>();

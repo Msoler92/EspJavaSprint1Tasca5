@@ -5,9 +5,8 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.TreeSet;
 
 import static java.nio.file.StandardOpenOption.APPEND;
 import static java.nio.file.StandardOpenOption.CREATE;
@@ -31,7 +30,7 @@ public class printDirectoryTree {
     //Recursively visit directory tree, in alphabetical order and depth-first, and write the name, type and last
     //modified date to the outputFile.
     public static void printSubdirectory(Path directory, Path outputFile, int depth) {
-        ArrayList<Path> dirPaths = new ArrayList<>();
+        TreeSet<Path> dirPaths = new TreeSet<>();
         String line;
         try(DirectoryStream<Path> stream = Files.newDirectoryStream(directory)) {
             for (Path file: stream) {
@@ -40,7 +39,6 @@ public class printDirectoryTree {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Collections.sort(dirPaths);
         for (Path file: dirPaths) {
             if (Files.isRegularFile(file) || Files.isSymbolicLink(file)) {
                 try {

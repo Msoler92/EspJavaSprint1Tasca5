@@ -5,8 +5,7 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.TreeSet;
 
 public class printDirectoryTree {
     public static void main(String[] args) {
@@ -19,7 +18,7 @@ public class printDirectoryTree {
     }
 
     public static void printSubdirectory(Path directory, int depth) {
-        ArrayList<Path> dirPaths = new ArrayList<>();
+        TreeSet<Path> dirPaths = new TreeSet<>();
         try(DirectoryStream<Path> stream = Files.newDirectoryStream(directory)) {
             for (Path file: stream) {
                 dirPaths.add(file);
@@ -27,7 +26,6 @@ public class printDirectoryTree {
         } catch (IOException e) {
             System.err.println("IOException");
         }
-        Collections.sort(dirPaths);
         for (Path file: dirPaths) {
             if (Files.isRegularFile(file) || Files.isSymbolicLink(file)) {
                 try {
